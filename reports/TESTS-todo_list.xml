@@ -1,0 +1,90 @@
+<testsuite name="todo_list.Task Management" tests="6" errors="0" failures="0" skipped="0" time="0.009754" timestamp="2024-08-08T23:37:38.523312" hostname="rgarcia"><testcase classname="todo_list.Task Management" name="Adding a task" status="passed" time="0.001031"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Adding a task
+    Given an empty task list ... passed in 0.000s
+    When a task named "<task_name>" is added ... passed in 0.001s
+    Then the task list should contain "<task_name>" ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+0
+
+]]>
+</system-out></testcase><testcase classname="todo_list.Task Management" name="Listing all tasks" status="passed" time="0.002028"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Listing all tasks
+    Given an empty task list ... passed in 0.001s
+    When a task named "Task 1" is added ... passed in 0.000s
+    When I list all tasks ... passed in 0.001s
+    Then I should see the following tasks in the list ... passed in 0.000s
+      | Task Name |
+      | Task 1    |
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+Tasks:
+	- Task 1 (Pendiente)
+
+]]>
+</system-out></testcase><testcase classname="todo_list.Task Management" name="Marking a task as completed" status="passed" time="0.001523"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Marking a task as completed
+    Given a task list with tasks ... passed in 0.001s
+      | Task Name |
+      | Task 1    |
+    When I mark task "Task 1" as completed ... passed in 0.000s
+    Then the status of task "Task 1" should be "Completada" ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="todo_list.Task Management" name="Clearing completed tasks" status="passed" time="0.00159"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Clearing completed tasks
+    Given a task list with tasks ... passed in 0.001s
+      | Task Name | Status     |
+      | Task 1    | Completada |
+      | Task 2    | Pendiente  |
+    When I clear completed tasks ... passed in 0.001s
+    Then the task list should only contain tasks with status "Pendiente" ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="todo_list.Task Management" name="Clearing all tasks" status="passed" time="0.002597"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Clearing all tasks
+    Given a task list with tasks ... passed in 0.001s
+      | Task Name |
+      | Task 1    |
+      | Task 2    |
+    When I clear all tasks ... passed in 0.001s
+    Then the task list should be empty ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="todo_list.Task Management" name="Marking all tasks as completed" status="passed" time="0.000985"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Marking all tasks as completed
+    Given a task list with tasks ... passed in 0.001s
+      | Task Name | Status    |
+      | Task 1    | Pendiente |
+      | Task 2    | Pendiente |
+    When I mark all tasks as completed ... passed in 0.000s
+    Then all tasks in the list should have status "Completada" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>
